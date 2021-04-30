@@ -43,7 +43,7 @@ ESP32   | DHT11
 --------|--------
 3V3     | +
 GND     | -
-G12     | Out
+G13     | Out
 
 **Esimerkkikoodi**
 
@@ -51,8 +51,8 @@ G12     | Out
 import dht
 from machine import Pin
 
-pin12 = Pin(12, Pin.IN, Pin.PULL_UP)
-sensor = dht.DHT11(pin12)
+pin13 = Pin(13, Pin.IN, Pin.PULL_UP)
+sensor = dht.DHT11(pin13)
 
 def get_temp_and_humidity():
     sensor.measure()
@@ -72,14 +72,14 @@ ESP32   | HC-SR501
 --------|--------
 3V3     | +
 GND     | -
-G34     | Out
+G32     | Out
 
 **Esimerkkikoodi**
 
 ```python
 from machine import Pin
 
-pir = Pin(34, Pin.IN)
+pir = Pin(32, Pin.IN)
 
 def handle_motion(pin):
     print('Motion!')
@@ -96,9 +96,11 @@ Liiketunnistimen modifiointi (extra)
 https://randomnerdtutorials.com/modifying-cheap-pir-motion-sensor-to-work-at-3-3v/
 
 
-## Potentiaalinen ongelma
+## Mitä liitäntöjä voin käyttää?
 
-Ongelma käynnistyksessä:
+ESP32:n pinnit on dokumentoitu osoitteessa https://randomnerdtutorials.com/esp32-pinout-reference-gpios/
+
+Huom! **GPIO12**-väylän käyttäminen aiheuttaa todennäköisesti seuraavan ongelman käynnistyksessä:
 
 ```
 rst:0x10 (RTCWDT_RTC_RESET),boot:0x33 (SPI_FAST_FLASH_BOOT)
