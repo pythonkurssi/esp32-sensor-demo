@@ -94,3 +94,24 @@ https://randomnerdtutorials.com/micropython-interrupts-esp32-esp8266/
 Liiketunnistimen modifiointi (extra)
 
 https://randomnerdtutorials.com/modifying-cheap-pir-motion-sensor-to-work-at-3-3v/
+
+
+## Potentiaalinen ongelma
+
+Ongelma käynnistyksessä:
+
+```
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x33 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x33 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371
+ets Jun  8 2016 00:22:57
+
+...
+```
+
+Alusta ratkaisu on irroittaa esim sensorien `+`-navat käynnistyksen ajaksi.
