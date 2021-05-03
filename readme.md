@@ -100,7 +100,7 @@ https://randomnerdtutorials.com/modifying-cheap-pir-motion-sensor-to-work-at-3-3
 
 ESP32:n pinnit on dokumentoitu osoitteessa https://randomnerdtutorials.com/esp32-pinout-reference-gpios/
 
-Huom! **GPIO12**-väylän käyttäminen aiheuttaa todennäköisesti seuraavan ongelman käynnistyksessä:
+Huom! **GPIO12**-väylän käyttäminen input-tilassa aiheuttaa mahdollisesti seuraavan ongelman käynnistyksessä:
 
 ```
 rst:0x10 (RTCWDT_RTC_RESET),boot:0x33 (SPI_FAST_FLASH_BOOT)
@@ -116,4 +116,4 @@ ets Jun  8 2016 00:22:57
 ...
 ```
 
-Alusta ratkaisu on irroittaa esim sensorien `+`-navat käynnistyksen ajaksi.
+Suosittelen käyttämään GPIO12:ta vain ulostulona.
